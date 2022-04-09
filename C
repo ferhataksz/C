@@ -465,7 +465,8 @@ for (i = 0; i < 5; i++) {
 //Örnek açıklama
 İfade 1, döngü başlamadan önce bir değişken ayarlar (int i = 0).
 
-İfade 2, döngünün çalışması için koşulu tanımlar (i 5'ten küçük olmalıdır). Koşul doğruysa döngü yeniden başlar, yanlışsa döngü sona erer.
+İfade 2, döngünün çalışması için koşulu tanımlar (i 5'ten küçük olmalıdır). 
+Koşul doğruysa döngü yeniden başlar, yanlışsa döngü sona erer.
 
 İfade 3, döngüdeki kod bloğu her çalıştırıldığında bir değeri (i++) artırır.
 
@@ -474,25 +475,279 @@ for (i = 0; i <= 10; i = i + 2) {
   printf("%d\n", i);
 }
 
-//Bu örnek yalnızca 0 ile 10 arasındaki çift değerleri yazdıracaktır:
+//Bu örnek yalnızca 0 ile 10 arasındaki çift değerleri yazdıracaktır: 
 
 
+// break ifadesinin kullanımı
+
+int i;
+
+for (i = 0; i < 10; i++) {
+  if (i == 4) {
+    break;
+  }
+  printf("%d\n", i);
+}
+
+// bu örnekte i=4 olduktan sonra döngüyü sonlandırır yani ekrana 0,1,2,3 yazdırırlır
+
+// contunie kullanımı
+
+Devam ifadesi, belirtilen bir koşul oluşursa bir yinelemeyi (döngüde) keser ve 
+döngüdeki bir sonraki yinelemeyle devam eder.
+
+int i;
+
+for (i = 0; i < 10; i++) {
+  if (i == 4) {
+    continue;
+  }
+  printf("%d\n", i);
+}
+
+// bu örnekte i=4 olduğunda 4'ü atlar ve döngüye devam eder. yani çıktı 0,1,2,3,5,6,7,8,9 olur
+
+// break ve continue while döngüsü ile kullanımı 
+
+int i = 0;
+
+while (i < 10) {
+  if (i == 4) {
+    break;
+  }
+  printf("%d\n", i);
+  i++;
+}
+
+int i = 0;
+
+while (i < 10) {
+  i++;
+  if (i == 4) {
+    continue;
+  }
+  printf("%d\n", i);
+}
+
+//  DİZİLER
+
+//Diziler, her bir değer için ayrı değişkenler bildirmek yerine birden çok değeri 
+tek bir değişkende depolamak için kullanılır.
+
+//Bir dizi oluşturmak için, veri türünü (int gibi) tanımlayın ve 
+dizinin adını ve ardından köşeli parantez [] belirtin.
+
+int myNumbers[] = {25, 50, 75, 100};
+
+//Şimdi dört tamsayıdan oluşan bir dizi tutan bir değişken yarattık.
 
 
+// Bir dizinin öğelerine erişme 
+-Bir dizi öğesine erişmek için dizin numarasına bakın .
+-Dizi dizinleri 0 ile başlar : [0] ilk öğedir. [1] ikinci öğedir, vb.
+
+int myNumbers[] = {25, 50, 75, 100};
+printf("%d", myNumbers[0]);
+
+// bu örnekte dizinin ilk öğesine[0] ulaşır yani ekrana 25 yazdırlır
 
 
+// Dizi öğesini değiştirme
+
+int myNumbers[] = {25, 50, 75, 100};
+myNumbers[0] = 33;
+
+printf("%d", myNumbers[0]);
+
+// ilk olarak dizinin 0. indexi 25'tir ancak sonradan değerin 0. indexine 
+başka bir değer atandığı için üzerine yazılır ve böylelikle dizinin 0. elemanı 33 olur
 
 
+// Bir dizide döngü
+
+//for döngüsü ile dizi elemanları arasında dolaşabilirsiniz.
+
+int myNumbers[] = {25, 50, 75, 100};
+int i;
+
+for (i = 0; i < 4; i++) {
+  printf("%d\n", myNumbers[i]);
+}
+
+// bu örnekte for döngüsü ile myNumbers dizisinin tüm elemanlarına sırayla ulaşılır. 
+ekran çıktısı 25,50,75,100 olur
 
 
+// Dizi boyutunu ayarlama 
+
+//Dizi oluşturmanın başka bir yaygın yolu da dizinin boyutunu belirlemek ve 
+daha sonra öğeler eklemektir:
+
+int myNumbers[4];
+
+// Add elements
+myNumbers[0] = 25;
+myNumbers[1] = 50;
+myNumbers[2] = 75;
+myNumbers[3] = 100;
+
+// dizinin eleman sayısını 4 olarak atadık ardından öğeleri ekledik
+// Not: Dizi oluşturulduktan sonra dizinin boytunu değiştiremeyiz
 
 
+STRİNGS
+
+//Diğer birçok programlama dilinden farklı olarak, 
+C, dize değişkenlerini kolayca oluşturmak için bir Dize türüne sahip değildir. Ancak, 
+C'de bir dize oluşturmak için chartürü kullanabilir ve bir karakter dizisi oluşturabilirsiniz:
+
+char greetings[] = "Hello World!";
+
+// NOT: Çift tırnak mutlaka kullanılmalı
+
+//Dizenin çıktısını almak için, C'ye artık dizelerle çalıştığımızı söylemek için 
+%s biçim belirteci ile birlikte printf() işlevini kullanabilirsiniz:
+
+char greetings[] = "Hello World!";
+printf("%s", greetings);
 
 
+//Dizeleri Değiştir
+
+//Bir dizedeki belirli bir karakterin değerini değiştirmek için 
+dizin numarasına bakın ve tek tırnak kullanın :
+
+char greetings[] = "Hello World!";
+greetings[0] = 'J';
+printf("%s", greetings);
+// Outputs Jello World! instead of Hello World!
+
+// Dize oluşturmanın farklı yolu
+
+//bir dizi karakterle bir dize oluşturabileceğinizi de unutmamalısınız. 
+Bu örnek, yukarıdakiyle aynı sonucu verecektir:
+
+char greetings[] = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', '!', '\0'};
+printf("%s", greetings);
+
+//Neden sonuna \0 karakterini ekledik? Bu, "boş sonlandırma karakteri" olarak bilinir ve 
+bu yöntem kullanılarak dizeler oluşturulurken dahil edilmelidir. 
+C'ye bunun dizenin sonu olduğunu söyler.
 
 
+USER İNPUT
+
+//Kullanıcı girdisi almak için scanf() işlevini kullanabilirsiniz:
 
 
+Kullanıcı tarafından girilen bir sayı çıktısı alın:
+
+// Kullanıcıdan aldığımız sayıyı saklayacak bir tamsayı değişkeni oluşturun
+int myNum;
+
+// Kullanıcıdan bir sayı yazmasını isteyin
+printf("Type a number: \n");
+
+// Kullanıcının yazdığı numarayı al ve kaydet
+scanf("%d", &myNum);
+
+// Kullanıcının yazdığı sayıyı çıktıla
+printf("Your number is: %d", myNum);
+
+//scanf() işlevi iki bağımsız değişken alır: 
+değişkenin biçim belirteci (yukarıdaki örnekte %d) ve 
+değişkenin bellek adresini saklayan başvuru operatörü (&myNum).
+
+//KULLANICI GİRİŞ DİZELERİ
+
+Bir kullanıcının adını yazdırın:
+
+#include <stdio.h>
+
+int main() {
+  // Bir dize oluştur
+  char firstName[30];
+
+  // Kullanıcıdan bir metin girmesini isteyin
+  printf("Enter your first name: \n");
+
+  // Metni alın ve kaydedin
+  scanf("%s", firstName);
+
+  // Metnin çıktısını al
+  printf("Hello %s.", firstName);
+  
+  return 0;
+}
+
+// NOT:Dizenin/dizinin boyutunu belirtmeniz gerektiğini unutmayın 
+(çok yüksek bir sayı, 30 kullandık, ancak en azından o zaman ad için yeterli karakter 
+depolayacağından eminiz) ve referans operatörünü belirtmeniz gerekmez 
+(&) scanf() içindeki dizelerle çalışırken.
+
+HAFIZA ADRESİ
+
+//C'de bir değişken oluşturulduğunda, değişkene bir bellek adresi atanır.
+
+//Bellek adresi, değişkenin bilgisayarda depolandığı konumdur.
+
+//Değişkene bir değer atadığımızda bu hafıza adresine kaydedilir.
+
+//Erişmek için referans operatörünü ( &) kullanın ve sonuç, 
+değişkenin nerede saklandığını gösterecektir:
+
+int myAge = 43;
+printf("%p", &myAge); // Outputs 0x7ffe5367e044
+
+//Ayrıca &myAge'in genellikle "işaretçi" olarak adlandırıldığını da unutmamalısınız. 
+Bir işaretçi temel olarak bir değişkenin bellek adresini değeri olarak saklar. 
+İşaretçi değerlerini yazdırmak için %p biçim belirtecini kullanırız.
+
+
+// İŞARETÇİLER OLUŞTURMA
+
+Bir değişkenin hafıza adresini referans operatörü (&) ile alabileceğimizi öğrendinik:
+
+#include <stdio.h>
+
+int main() {
+  int myAge = 43; //bir int değişkeni
+  
+  printf("%d\n", myAge); //myAge (43) değerini verir
+  printf("%p\n", &myAge); // myAge (0x7ffe5367e044) bellek adresinin çıktısını verir
+  return 0;
+}
+
+//örnekte &myAge, işaretçi olarak da bilinir.
+
+//Bir işaretçi değişkeni, aynı türden bir veri tipine (int gibi) işaret eder 
+ve * operatörüyle oluşturulur. Çalıştığınız değişkenin adresi işaretçiye atanır:
+
+#include <stdio.h>
+
+int main() {
+  int myAge = 43; // Bir int değişkeni
+  int* ptr = &myAge;  // myAge adresini saklayan ptr adında bir işaretçi değişkeni
+
+  // myAge (43) değerini çıkar
+  printf("%d\n", myAge);
+
+  // myAge (0x7ffe5367e044) bellek adresinin çıktısını alın
+  printf("%p\n", &myAge);
+
+ // işaretçi (0x7ffe5367e044) ile myAge'in bellek adresinin çıktısını alın
+  printf("%p\n", ptr);
+
+  return 0;
+}
+
+//Örnek açıklama
+-Bir int değişkenine (myAge) işaret eden ptr adında bir işaretçi değişkeni oluşturun. 
+İşaretçinin türünün, birlikte çalıştığınız değişkenin türüyle eşleşmesi gerektiğini unutmayın.
+
+-myAge değişkeninin bellek adresini saklamak için & operatörünü kullanın ve bunu işaretçiye atayın.7
+
+-Şimdi, ptr myAge'in bellek adresinin değerini tutar.
 
 
 
