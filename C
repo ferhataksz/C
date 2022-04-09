@@ -1,0 +1,517 @@
+// EKRANA YAZI YAZDIRMA
+
+#include <stdio.h>
+
+int main() {
+  printf("Hello World!");
+  return 0;
+}
+
+// YENİ BİR SATIR EKLEMEK
+
+#include <stdio.h>
+
+int main() {
+  printf("Hello World!\n");   // yeni bir satir eklemek için  "\n" kullanılır
+  printf("I am learning C.");
+  return 0;
+}
+
+// BOŞ SATIR EKLEMEK
+
+#include <stdio.h>
+
+int main() {
+  printf("Hello World!\n\n"); // Arka arkaya iki "\n" karakter boş bir satır oluşturur
+  printf("I am learning C.");
+  return 0;
+}
+
+
+//DEĞİŞKEN TÜRLERİ 
+
+int- 123 veya -123 gibi tam sayıları (tam sayıları) ondalık olmadan saklar
+float- 19.99 veya -19,99 gibi ondalık sayılarla kayan nokta sayılarını saklar
+char- 'a' veya 'B' gibi tek karakterleri saklar. Karakter değerleri tek tırnak içine alınır
+
+
+//DEĞİŞKEN OLUŞTURMA
+
+//Bir değişken oluşturmak için türü belirtin ve ona bir değer atayın :
+//type variableName = value;
+
+int myNum = 15;
+
+//Ayrıca değeri atamadan bir değişken bildirebilir ve değeri daha sonra atayabilirsiniz:
+
+int myNum;
+myNum = 15;
+
+//Not: Mevcut bir değişkene yeni bir değer atarsanız, önceki değerin üzerine yazar:
+
+int myNum = 15;  // myNum is 15
+myNum = 10;  // Now myNum is 10
+
+
+//BİÇİM BELİRTİCİLERİ
+
+Belirteç     Açıklama
+%c           char Tek karakter
+%d or %i     int
+%f           float
+%ıf          double
+%s           array karakter dizimi (string)
+
+int myNum = 5;             // Integer (whole number)
+float myFloatNum = 5.99;   // Floating point number
+char myLetter = 'D';       // Character
+
+// Print variables
+printf("%d\n", myNum);
+printf("%f\n", myFloatNum);
+printf("%c\n", myLetter);
+
+// Hem metni hem de değişkeni birleştirmek için, bunları printf() işlevi içinde virgülle ayırın:
+
+int myNum = 5;
+printf("My favorite number is: %d", myNum);
+
+//Tek bir printf() işlevinde farklı türleri yazdırmak:
+
+int myNum = 5;
+char myLetter = 'D';
+printf("My number is %d and my letter is %c", myNum, myLetter);
+
+
+DEĞİŞKENLERİ BİRLİKTE EKLE
+
+//Başka bir değişkene değişken eklemek için + operatörü kullanılabilir:
+
+int x = 5;
+int y = 6;
+int sum = x + y;
+printf("%d", sum);
+
+//Aynı türden birden fazla değişken bildirmek için virgülle ayrılmış bir liste kullanın:
+
+int x = 5, y = 6, z = 50;
+printf("%d", x + y + z);
+
+//Aynı türdeki birden çok değişkene aynı değeri atayabilirsiniz :
+
+int x, y, z;
+x = y = z = 50;
+printf("%d", x + y + z);
+
+//SABİTLER
+
+//Başkalarının (veya kendinizin) mevcut değişken değerlerini geçersiz kılmasını istemiyorsanız, 
+"const" anahtar kelimeyi kullanın (bu, değişkeni "sabit" olarak bildirir, bu da değiştirilemez ve 
+salt okunur anlamına gelir ):
+
+const int myNum = 15;  // myNum her zaman 15 olur
+myNum = 10;  // hata verir çünkü myNum değeri değiştirilemez
+
+//Değişmesi muhtemel olmayan değerleriniz olduğunda, değişkeni her zaman
+sabit olarak bildirmelisiniz:
+
+const int minutesPerHour = 60;
+const float PI = 3.14;
+
+// Bir sabit değişken tanımladığınızda, ona bir değer atanmalıdır:
+
+const int minutesPerHour = 60;
+
+// sabit değişkene sonradan değer atanamaz
+
+const int minutesPerHour;
+minutesPerHour = 60; // error
+
+// OPERATÖRLER
+
+C, operatörleri aşağıdaki gruplara ayırır:
+
+Aritmetik operatörler
+atama operatörleri
+karşılaştırma operatörleri
+Mantıksal operatörler
+bitsel operatörler
+
+//Aritmetik operatörler
+
+Operator	İşlev       Örnek	
++	        Toplama 		x + y	
+-	        Çıkarma	  	x - y	
+*	        Çarpma	  	x * y	
+/	        Bölme		    x / y	
+%	        Mod alma		x % y	
+++	      Arttırma		++x	
+--	      Azaltma     --x
+
+int myNum = 100 + 50;
+
+//Operatör genellikle yukarıdaki +örnekte olduğu gibi iki değeri bir araya getirmek için
+kullanılsa da,bir değişken ile bir değeri veya bir değişken ile başka bir değişkeni 
+birlikte eklemek için de kullanılabilir:
+
+int sum1 = 100 + 50;        // 150 (100 + 50)
+int sum2 = sum1 + 250;      // 400 (150 + 250)
+int sum3 = sum2 + sum2;     // 800 (400 + 400)
+
+//Atama öperatörleri
+
+Operator	Example	     Same As	
+=	        x = 5	       x = 5	
++=	      x += 3	     x = x + 3	
+-=	      x -= 3	     x = x - 3	
+*=	      x *= 3	     x = x * 3	
+/=	      x /= 3	     x = x / 3	
+%=	      x %= 3	     x = x % 3	
+&=	      x &= 3	     x = x & 3	
+|=	      x |= 3	     x = x | 3	
+^=	      x ^= 3	     x = x ^ 3	
+>>=	      x >>= 3	     x = x >> 3	
+<<=	      x <<= 3	     x = x << 3	
+
+
+int x = 10;
+
+//örnekte, x adlı bir değişkene 10 değerini atamak için 
+atama operatörünü (=) kullanıyoruz:
+
+//Toplama atama operatörü (+=), bir değişkene bir değer ekler:
+
+int x = 10;
+x += 5; //(x = x + 5)
+
+
+//Karşılaştırma operatörleri
+
+//Karşılaştırma operatörleri iki değeri karşılaştırmak için kullanılır. 
+Not: Bir karşılaştırmanın dönüş değeri doğru (1) veya yanlış (0)'dır. 
+Aşağıdaki örnekte, 5'in 3'ten büyük olup olmadığını öğrenmek için 
+büyüktür operatörünü (>) kullanıyoruz:
+
+int x = 5;
+int y = 3;
+printf("%d", x > y); // 1 (doğru) değerinin döndürür çünkü 5 3'ten büyüktür
+
+int x = 5;
+int y = 8;
+printf("%d", x > y); // 0 (yanlış) değerini döndürür çünkü 5 8'den küçüktür
+
+Karşılaştırma operatörleri listesi
+
+Operator	  Name   	        Example	
+==	        Eşittir	        x == y	
+!=	        Eşit değildir	  x != y	
+>	          Büyüktür	      x > y	
+<	          Küçüktür	      x < y	
+>=	        Büyük eşit	    x >= y	
+<=	        Küçük eşit	    x <= y
+
+
+
+// KOŞULLAR VE İF İFADELERİ
+
+if       Belirtilen koşul doğruysa yürütülecek kod bloğunu belirtmek için kullanın
+else     Aynı koşul yanlışsa yürütülecek kod bloğunu belirtmek için kullanın
+else if  İlk koşul yanlışsa, test edilecek yeni bir koşul belirtmek için kullanın .
+switch   Yürütülecek birçok alternatif kod bloğu belirtmek için kullanın
+
+//Bir koşul doğruysa yürütülecek C kodu bloğunu belirtmek için if ifadesini kullanın
+
+if (condition) {
+  // koşul doğruysa yürütülecek kod bloğu
+}
+
+//Aşağıdaki örnekte, 20'nin 18'den büyük olup olmadığını bulmak için iki değeri test ediyoruz. 
+Koşul doğruysa, bir metin yazdırın:
+
+if (20 > 18) {
+  printf("20 is greater than 18");
+}
+
+
+int x = 20;
+int y = 18;
+if (x > y) {
+  printf("x is greater than y");
+}
+
+// Yukarıdaki örnekte, x'in y'den büyük olup olmadığını test etmek için 
+x ve y olmak üzere iki değişken kullanıyoruz (> operatörünü kullanarak). 
+x 20 ve y 18 olduğundan ve 20'nin 18'den büyük olduğunu bildiğimiz için 
+ekrana "x y'den büyüktür" yazdırıyoruz.
+
+//ELSE BİLDİRİMİ
+
+///Koşul yanlışsa yürütülecek kod bloğunu belirtmek için else ifadesini kullanın.
+
+if (condition) {
+  // koşul doğruysa yürütülecek kod bloğu
+} else {
+  // koşul yanlışsa yürütülecek kod bloğu 
+}
+
+int time = 20;
+if (time < 18) {
+  printf("Good day.");
+} else {
+  printf("Good evening.");
+}
+// çıkış "Good evening." olur. 20 18'den küçük olmadığı için else bloğu çaışır. 
+eğer zaman 18'den küçük olursa çıktı "Good day." olur
+
+//ELSE İF
+
+///İlk koşul yanlışsa, yeni bir koşul belirtmek için else if ifadesini kullanın.
+
+if (koşul1) {
+  // koşul1 doğruysa yürütülecek kod bloğu
+} else if (koşul2) {
+  // koşul1 yanlış ve koşul2 doğruysa yürütülecek kod bloğu
+} else {
+  // koşul1 yanlış ve koşul2 yanlışsa yürütülecek kod bloğu
+}
+
+int time = 22;
+if (time < 10) {
+  printf("Good morning.");
+} else if (time < 20) {
+  printf("Good day.");
+} else {
+  printf("Good evening.");
+}
+// Outputs "Good evening."
+
+
+int myNum = 10; // Is this a positive or negative number?
+
+if (myNum > 0)
+  printf("The value is a positive number.");
+else if (myNum < 0)
+  printf("The value is a negative number.");
+else
+  printf("The value is 0.");
+
+// çıkış "The value is a positive number." olur çünkü 10 sıfırdan büyük oluğu için 
+ilk koşul doğru olacağından ekrana ilk blok yazdırılır
+
+
+// KISA IF ELSE BLOĞU
+
+//Birden çok kod satırını tek bir satırla değiştirmek için kullanılabilir. 
+Genellikle basit if else ifadelerini değiştirmek için kullanılır:
+
+variable = (condition) ? expressionTrue : expressionFalse;
+
+
+int time = 20;
+if (time < 18) {
+  printf("Good day.");
+} else {
+  printf("Good evening.");
+}
+//yukarıda uzun uzun yazmak yerine aşağıda olduğu gibi de yazılabilir
+
+int time = 20;
+(time < 18) ? printf("Good day.") : printf("Good evening.");
+
+
+//SWİTCH İFADESİ
+
+//Birçok if..else ifadesi yazmak yerine switch ifadesini kullanabilirsiniz.
+
+//switch ifadesi, yürütülecek birçok kod bloğundan birini seçer:
+
+switch(expression) {
+  case x:
+    // code block
+    break;
+  case y:
+    // code block
+    break;
+  default:
+    // code block
+}
+
+//Switch nasıl çalışır
+-Switch ifadesi bir kez değerlendirilir
+-İfadenin değeri, her bir durumun değerleri ile karşılaştırılır.
+-Bir eşleşme varsa, ilgili kod bloğu yürütülür.
+-break ifadesi switch bloğundan çıkar ve yürütmeyi durdurur
+-"default" ifadesi isteğe bağlıdır ve büyük/küçük harf eşleşmesi olmadığında 
+çalıştırılacak bazı kodları belirtir.
+
+
+int day = 4;
+
+switch (day) {
+  case 1:
+    printf("Monday");
+    break;
+  case 2:
+    printf("Tuesday");
+    break;
+  case 3:
+    printf("Wednesday");
+    break;
+  case 4:
+    printf("Thursday");
+    break;
+  case 5:
+    printf("Friday");
+    break;
+  case 6:
+    printf("Saturday");
+    break;
+  case 7:
+    printf("Sunday");
+    break;
+}
+ 
+//gün 4'e eşit olduğu için haftanın 4. günü olan "perşembe" çıktısı ekrana yazılır ve yürütme durur
+
+//default bloğu
+
+int day = 4;
+
+switch (day) {
+  case 6:
+    printf("Today is Saturday");
+    break;
+  case 7:
+    printf("Today is Sunday");
+    break;
+  default:
+    printf("Looking forward to the Weekend");
+}
+
+// 4. güne eşit olan bir case bloğu olmadığı için en son olarak default bloğu çalışır 
+ve ekrana "Looking forward tot he weekend." yazılır
+
+
+//DÖNGÜLER
+
+//Döngüler, belirli bir koşula ulaşıldığı sürece bir kod bloğunu çalıştırabilir.
+
+
+//WHİLE DÖNGÜSÜ
+//while döngüsü, belirtilen bir koşul doğru olduğu sürece bir kod bloğu boyunca döner:
+
+while (koşul) {
+  // yürütülecek kod bloğu
+}
+
+
+int i = 0;
+
+while (i < 5) {
+  printf("%d\n", i);
+  i++;
+}
+
+//örnekte, (i) değişkeni 5'ten küçük olduğu sürece döngüdeki kod tekrar tekrar çalışacaktır:
+ve çıktı 0,1,2,3,4 olacaktır 
+
+Not: ( ) koşulunda kullanılan değişkeni artırmayı unutmayın "i++", aksi takdirde döngü asla bitmez!
+
+//DO/WHİLE DÖNGÜSÜ
+
+// do/while döngüsü, while döngüsünün bir çeşididir. 
+Bu döngü, koşulun doğru olup olmadığını kontrol etmeden önce kod bloğunu bir kez çalıştıracak, 
+ardından koşul doğru olduğu sürece döngüyü tekrarlayacaktır.
+
+do {
+  // yürütülecek kod bloğu
+}
+while (condition);
+
+//Aşağıdaki örnekte bir do/while döngüsü kullanılmaktadır. 
+Kod bloğu koşul test edilmeden önce yürütüldüğünden, koşul yanlış olsa bile 
+döngü her zaman en az bir kez yürütülür:
+
+int i = 0;
+
+do {
+  printf("%d\n", i);
+  i++;
+}
+while (i < 5);
+
+
+//FOR DÖNGÜSÜ
+
+//Bir kod bloğunda tam olarak kaç kez döngü yapmak istediğinizi biliyorsanız, 
+while döngüsü yerine for döngüsünü kullanın:
+
+for (ifade 1; ifade 2; ifade 3) {
+  // yürütülecek kod bloğu
+}
+
+-İfade 1, kod bloğunun yürütülmesinden önce (bir kez) yürütülür.
+-İfade 2, kod bloğunun yürütülmesi için koşulu tanımlar.
+-Kod bloğu yürütüldükten sonra (her seferinde) İfade 3 yürütülür.
+
+int i;
+
+for (i = 0; i < 5; i++) {
+  printf("%d\n", i);
+}
+
+//Örnekte, 0'dan 4'e kadar olan sayıları yazdıracaktır:(0,1,2,3,4)
+
+//Örnek açıklama
+İfade 1, döngü başlamadan önce bir değişken ayarlar (int i = 0).
+
+İfade 2, döngünün çalışması için koşulu tanımlar (i 5'ten küçük olmalıdır). Koşul doğruysa döngü yeniden başlar, yanlışsa döngü sona erer.
+
+İfade 3, döngüdeki kod bloğu her çalıştırıldığında bir değeri (i++) artırır.
+
+
+for (i = 0; i <= 10; i = i + 2) {
+  printf("%d\n", i);
+}
+
+//Bu örnek yalnızca 0 ile 10 arasındaki çift değerleri yazdıracaktır:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
