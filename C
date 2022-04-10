@@ -720,6 +720,8 @@ int main() {
 
 //örnekte &myAge, işaretçi olarak da bilinir.
 
+
+
 //Bir işaretçi değişkeni, aynı türden bir veri tipine (int gibi) işaret eder 
 ve * operatörüyle oluşturulur. Çalıştığınız değişkenin adresi işaretçiye atanır:
 
@@ -748,6 +750,11 @@ int main() {
 -myAge değişkeninin bellek adresini saklamak için & operatörünü kullanın ve bunu işaretçiye atayın.7
 
 -Şimdi, ptr myAge'in bellek adresinin değerini tutar.
+
+
+
+
+
 
 
 
